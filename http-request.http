@@ -1,0 +1,38 @@
+http://localhost:8080
+
+<> 2019-07-08T061654.200.txt
+<> 2019-07-08T061628.200.txt
+<> 2019-07-08T061623.200.txt
+<> 2019-07-08T061443.200.txt
+
+###
+POST http://localhost:8080/post
+Content-Type: application/x-www-form-urlencoded
+
+id=999
+
+###
+POST http://localhost:8080/postObj
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+###
+POST http://localhost:8080/postObj
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
