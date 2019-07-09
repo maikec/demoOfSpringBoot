@@ -32,3 +32,6 @@ build/
 
 ### http test ###
 *.http
+
+### log ###
+log/
