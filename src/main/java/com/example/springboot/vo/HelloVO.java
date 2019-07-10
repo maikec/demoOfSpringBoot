@@ -1,4 +1,5 @@
-package com.example.springboot.vo;/**
+package com.example.springboot.vo;
+/**
  * 公司名称
  * <p>
  * 本源代码由《springboot》及其作者共同所有，未经版权持有者的事先书面授权，
