@@ -9,11 +9,16 @@ package com.example.springboot.service.impl;/**
 
 import cn.hutool.core.util.IdUtil;
 import com.example.springboot.domain.Actor;
+import com.example.springboot.domain.SYSConfig;
 import com.example.springboot.repository.mapper.ActorMapper;
+import com.example.springboot.repository.mapperext.SYSConfigMapper;
 import com.example.springboot.service.HelloService;
 import lombok.extern.slf4j.Slf4j;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -24,6 +29,16 @@ import java.util.List;
 @Service
 @Slf4j
 public class HelloServiceImpl implements HelloService {
+
+    @Resource
+    private SqlSessionTemplate sqlSessionTemplate;
+
+    @Resource
+    @Qualifier("defaultSqlSession")
+    private SqlSessionTemplate sqlSessionTemplateSe;
+
+    @Resource
+    private SYSConfigMapper configMapper;
     private final ActorMapper mapper;
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     public HelloServiceImpl(ActorMapper actorMapper){
@@ -35,6 +50,13 @@ public class HelloServiceImpl implements HelloService {
         log.error("error in {}",getClass().getName());
         log.info("info in {}",getClass().getSimpleName());
 
+        final SYSConfig actorByValue = configMapper.getActorByValue("100");
+        System.out.println(actorByValue.toString());
+
+        final Actor o = sqlSessionTemplate.selectOne("getActorById", 3);
+        final SYSConfig config = sqlSessionTemplateSe.selectOne("getActorByValue", "64");
+
+        System.out.println(o.toString());
 
         final Actor actor = mapper.getActorById(1);
 //        final Actor selectCityById = mapper.selectCityById(2);
