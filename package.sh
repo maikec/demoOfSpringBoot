@@ -1,4 +1,4 @@
 # package shell
 
 #!/bin/bash
-mvn clean package -Dmaven.skip.test=true
+mvn clean package -Dmaven.test.skip=true
