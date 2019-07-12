@@ -1,3 +1,7 @@
+
 server:
   port: 8088
-debug: true
+debug: false
+spring:
+  profiles:
+    active: dev
