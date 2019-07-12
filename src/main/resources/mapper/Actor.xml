@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot.repository.mapper.ActorMapper">
+    <select id="selectCityById" resultType="Actor" parameterType="Integer">
+       select
+           actor_id as actorId ,first_name as firstName,last_name as lastName, last_update as lastUpdate
+       from
+           actor
+       where
+           actor_id = #{id}
+    </select>
+</mapper>
