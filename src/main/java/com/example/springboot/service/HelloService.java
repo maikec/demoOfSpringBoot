@@ -7,6 +7,8 @@ package com.example.springboot.service;/**
  * @copyright Copyright (c) 2019-2019+3. （company）all rights reserved.
  */
 
+import com.example.springboot.domain.Actor;
+
 /**
  * hello
  *  @author maikec
@@ -18,4 +20,11 @@ public interface HelloService {
      * @return
      */
     String index();
+
+    /**
+     * 写入
+     * @param actor
+     * @return
+     */
+    Integer save(Actor actor);
 }

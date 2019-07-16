@@ -71,4 +71,9 @@ public class HelloServiceImpl implements HelloService {
         System.out.println(i);
         return IdUtil.randomUUID();
     }
+
+    @Override
+    public Integer save(Actor actor) {
+        return mapper.save(actor);
+    }
 }

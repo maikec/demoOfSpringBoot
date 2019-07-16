@@ -40,4 +40,9 @@ public class HelloController {
     public String postObj(@RequestBody HelloVO vo){
         return vo.toString();
     }
+
+    @GetMapping("getObj")
+    public String getObj(@RequestBody HelloVO vo){
+        return vo.toString();
+    }
 }
