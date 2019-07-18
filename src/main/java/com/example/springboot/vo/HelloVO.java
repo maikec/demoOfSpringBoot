@@ -10,13 +10,15 @@ package com.example.springboot.vo;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  *  demo vo
  *  @author maikec
  *  @date 2019/7/8
  */
 @Data
-public class HelloVO {
+public class HelloVO implements Serializable {
     private Integer id;
     private String value;
 }

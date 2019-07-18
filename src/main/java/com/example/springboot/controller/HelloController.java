@@ -42,7 +42,11 @@ public class HelloController {
     }
 
     @GetMapping("getObj")
-    public String getObj(@RequestBody HelloVO vo){
+    public String getObj(HelloVO vo){
+        return vo.toString();
+    }
+    @PostMapping("postObj2")
+    public String postObj2( HelloVO vo){
         return vo.toString();
     }
 }
