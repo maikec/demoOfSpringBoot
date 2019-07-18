@@ -1,0 +1,509 @@
+GET http://127.0.0.1:8081/getObj?id=199&value=333
+
+Accept: application/json
+
+<> 2019-07-18T061010.400.json
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: application/x-www-form-urlencoded
+
+id=1999&value=content
+
+<> 2019-07-18T060944.200.txt
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: application/x-www-form-urlencoded
+
+id=999&value=content
+
+<> 2019-07-18T060938.200.txt
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=199&value=333
+
+Accept: application/json
+
+<> 2019-07-18T060930.400.json
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=99&value=333
+
+Accept: application/json
+
+<> 2019-07-18T060925.200.txt
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-18T060905.200.txt
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-18T060854.200.txt
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=199&value=333
+
+Accept: application/json
+
+<> 2019-07-18T060837.400.json
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=199&value=333
+
+Accept: application/json
+
+<> 2019-07-18T060802.400.json
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=199&value=333
+
+Accept: application/json
+
+<> 2019-07-18T060641.400.json
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=199&value=333
+
+Accept: application/json
+
+<> 2019-07-18T060445.400.json
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=199&value=333
+
+Accept: application/json
+
+<> 2019-07-18T060435.400.json
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=199&value=333
+
+Accept: application/json
+
+<> 2019-07-18T060427.400.json
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=199&value=333
+
+Accept: application/json
+
+<> 2019-07-18T060417.400.json
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=199&value=333
+
+Accept: application/json
+
+<> 2019-07-18T060144.400.json
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=199&value=333
+
+Accept: application/json
+
+<> 2019-07-18T060121.400.json
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=99&value=333
+
+Accept: application/json
+
+<> 2019-07-18T093046.200.txt
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: application/x-www-form-urlencoded
+
+id=999&value=content
+
+<> 2019-07-18T093028.200.txt
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-18T092957.200.txt
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: application/x-www-form-urlencoded
+
+id=999&value=content
+
+<> 2019-07-18T092950.200.txt
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: application/x-www-form-urlencoded
+
+id=999&value=content
+
+<> 2019-07-18T092947.200.txt
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-18T092917.200.txt
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: application/x-www-form-urlencoded
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-18T092859.200.txt
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=99&value=333
+
+Accept: application/json
+
+<> 2019-07-18T092840.200.txt
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=99&value=333
+
+Accept: application/json
+
+<> 2019-07-18T092818.200.txt
+
+###
+
+GET http://127.0.0.1:8081/getObj
+
+Content-Type: application/x-www-form-urlencoded
+
+id=999&value=content
+
+<> 2019-07-18T092703.200.txt
+
+###
+
+GET http://127.0.0.1:8081/getObj
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-18T092620.200.txt
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: application/x-www-form-urlencoded
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-18T092303.200.txt
+
+###
+
+GET http://127.0.0.1:8081/getObj
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-18T092258.200.json
+
+###
+
+POST http://127.0.0.1:8081/postObj2?id=111&value="22"
+Content-Type: application/json
+Accept: application/json
+
+<> 2019-07-18T092235.200.json
+
+###
+
+POST http://127.0.0.1:8081/postObj2?id=111&value="22"
+Content-Type: application/json
+Accept: application/json
+
+<> 2019-07-18T092233.200.json
+
+###
+
+GET http://127.0.0.1:8081/postObj2?id=111&value="22"
+Content-Type: application/json
+Accept: application/json
+
+<> 2019-07-18T092158.405.json
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=111&value="22"
+Content-Type: application/json
+Accept: application/json
+
+<> 2019-07-18T092139.200.json
+
+###
+
+GET http://127.0.0.1:8081/getObj?id=111&value=22
+Content-Type: application/json
+Accept: application/json
+
+<> 2019-07-18T092104.200.json
+
+###
+
+GET http://127.0.0.1:8081/getObj
+Content-Type: application/json
+Accept: application/json
+
+{   "id": 999,   "value": "content" }
+
+<> 2019-07-18T092037.200.json
+
+###
+
+GET http://127.0.0.1:8081/getObj
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-18T091850.200.json
+
+###
+
+GET http://127.0.0.1:8081/getObj
+Content-Type: application/json
+Accept: application/x-www-form-urlencoded
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-18T091820.200.txt
+
+###
+
+GET http://127.0.0.1:8081/getObj
+Content-Type: application/json
+Accept: application/x-www-form-urlencoded
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: application/x-www-form-urlencoded
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-16T071715.200.txt
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: text/plain
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-16T071617.200.txt
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: application/x-www-form-urlencoded
+Accept: application/x-www-form-urlencoded
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-16T071520.200.txt
+
+###
+
+GET http://127.0.0.1:8081/getObj
+Content-Type: application/json
+Accept: application/x-www-form-urlencoded
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-16T071505.200.txt
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: application/json
+Accept: application/x-www-form-urlencoded
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-16T071500.200.txt
+
+###
+
+POST http://127.0.0.1:8081/postObj2
+Content-Type: application/json
+Accept: application/x-www-form-urlencoded
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-16T071456.200.txt
+
+###
+
+GET http://127.0.0.1:8081/getObj
+Content-Type: application/json
+Accept: application/x-www-form-urlencoded
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-16T071146.200.txt
+
+###
+
+GET http://127.0.0.1:8081/getObj
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-16T071124.200.json
+
+###
+
+GET http://127.0.0.1:8081/getObj
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-16T070428.200.txt
+
+###
+
+GET http://127.0.0.1:8081/getObj
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-16T070114.200.txt
+
+###
+
+GET http://127.0.0.1:8081/getObj
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-16T070027.200.txt
+
+###
+
+GET http://127.0.0.1:8081/getObj
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-07-16T070023.200.txt
+
+###
+

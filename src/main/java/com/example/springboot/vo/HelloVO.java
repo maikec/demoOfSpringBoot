@@ -10,6 +10,10 @@ package com.example.springboot.vo;
 
 import lombok.Data;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -19,6 +23,9 @@ import java.io.Serializable;
  */
 @Data
 public class HelloVO implements Serializable {
+    @Min(value = 1,message = "不能小于1")
+    @Max(value = 100,message = "不能大于100")
     private Integer id;
+    @NotNull(message = "value不能为空")
     private String value;
 }

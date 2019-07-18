@@ -12,6 +12,8 @@ import com.example.springboot.vo.HelloVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 /**
  *  demo
  *  @author maikec
@@ -42,7 +44,7 @@ public class HelloController {
     }
 
     @GetMapping("getObj")
-    public String getObj(HelloVO vo){
+    public String getObj(@Valid HelloVO vo){
         return vo.toString();
     }
     @PostMapping("postObj2")
