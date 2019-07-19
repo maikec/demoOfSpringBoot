@@ -7,6 +7,8 @@ package com.example.springboot.demo.annotation;/**
  * @copyright Copyright (c) 2019-2022. （广州奥凯信息咨询有限公司）all rights reserved.
  */
 
+import java.lang.annotation.Annotation;
+
 /**
  * 说明
  *  @author maikec
@@ -15,4 +17,5 @@ package com.example.springboot.demo.annotation;/**
 @InheritedAnnotation
 @NoInheritedAnnotation
 public class InheritedTest {
+
 }
