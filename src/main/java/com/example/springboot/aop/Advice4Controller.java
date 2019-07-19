@@ -22,6 +22,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @ControllerAdvice
 public class Advice4Controller {
+    /**
+     * 入参校验
+     * @param bindException 绑定的校验信息
+     * @return
+     */
     @ExceptionHandler(BindException.class)
     @ResponseBody
     public String valid(BindException bindException){
