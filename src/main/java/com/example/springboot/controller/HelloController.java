@@ -48,7 +48,8 @@ public class HelloController {
         return vo.toString();
     }
     @PostMapping("postObj2")
-    public String postObj2( HelloVO vo){
-        return vo.toString();
+    public String postObj2( HelloVO vo) throws Exception {
+        throw new Exception();
+//        return vo.toString();
     }
 }

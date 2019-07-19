@@ -7,13 +7,13 @@ package com.example.springboot.aop;/**
  * @copyright Copyright (c) 2019-2022. （广州奥凯信息咨询有限公司）all rights reserved.
  */
 
+import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import org.springframework.validation.BindException;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
-import javax.validation.ConstraintViolationException;
-import java.util.Collections;
-import java.util.Map;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * controller增强
@@ -22,13 +22,13 @@ import java.util.Map;
  */
 @ControllerAdvice
 public class Advice4Controller {
-    @ExceptionHandler(ConstraintViolationException.class)
-    public String valid(ConstraintViolationException con){
-        con.getConstraintViolations().forEach(constraintViolation -> {
-            System.out.println(constraintViolation.getMessage());
+    @ExceptionHandler(BindException.class)
+    @ResponseBody
+    public String valid(BindException bindException){
+        JSONObject obj = JSONUtil.createObj();
+        bindException.getAllErrors().forEach(objectError -> {
+            obj.putIfAbsent(((FieldError)objectError).getField(),objectError.getDefaultMessage());
         });
-        Map<String, String> objectObjectMap = Collections.emptyMap();
-        objectObjectMap.putIfAbsent("data","2");
-        return JSONUtil.toJsonPrettyStr(objectObjectMap);
+        return obj.toStringPretty();
     }
 }

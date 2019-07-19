@@ -43,7 +43,7 @@ Content-Type: application/x-www-form-urlencoded
 id=1999&value=content
 
 ###
-GET http://127.0.0.1:8081/getObj?id=199&value=333
+GET http://127.0.0.1:8081/getObj?id=199
 #Content-Type: application/json
 
 Accept: application/json
