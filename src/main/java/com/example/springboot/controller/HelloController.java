@@ -9,9 +9,13 @@ package com.example.springboot.controller;/**
 
 import com.example.springboot.service.HelloService;
 import com.example.springboot.vo.HelloVO;
+import com.example.springboot.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
 /**
@@ -22,6 +26,7 @@ import javax.validation.Valid;
 @RestController
 @Slf4j
 public class HelloController {
+
     private final HelloService service;
     public HelloController(HelloService helloService){
         this.service = helloService;
@@ -51,5 +56,11 @@ public class HelloController {
     public String postObj2( HelloVO vo) throws Exception {
         throw new Exception();
 //        return vo.toString();
+    }
+
+    public String login(@Valid UserVO userVO){
+//        int insert = service.saveUser(userVO);
+//        return String.valueOf(insert);
+        return "";
     }
 }
