@@ -11,6 +11,13 @@ import com.example.springboot.service.HelloService;
 import com.example.springboot.vo.HelloVO;
 import com.example.springboot.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.crypto.hash.Sha512Hash;
+import org.apache.shiro.subject.Subject;
+import org.apache.shiro.util.ByteSource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +32,7 @@ import javax.validation.Valid;
  */
 @RestController
 @Slf4j
+@RequestMapping("helloCtrl")
 public class HelloController {
 
     private final HelloService service;
@@ -58,9 +66,21 @@ public class HelloController {
 //        return vo.toString();
     }
 
-    public String login(@Valid UserVO userVO){
-//        int insert = service.saveUser(userVO);
-//        return String.valueOf(insert);
-        return "";
+    @PostMapping("register")
+    public String register(@Valid UserVO userVO){
+        int insert = service.saveUser(userVO);
+        return String.valueOf(insert);
     }
+    @PostMapping("login")
+    public String login(@Valid UserVO userVO){
+        Subject subject = SecurityUtils.getSubject();
+        try {
+            subject.login(new UsernamePasswordToken(userVO.getAccount(),new Md5Hash(ByteSource.Util.bytes(
+                    userVO.getPassword())).toHex()));
+        }catch (AuthenticationException exception){
+            log.info("用户校验失败",exception);
+        }
+        return "1";
+    }
+
 }

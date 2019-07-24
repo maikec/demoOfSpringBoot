@@ -7,15 +7,18 @@ package com.example.springboot.config;/**
  * @copyright Copyright (c) 2019-2022. （广州奥凯信息咨询有限公司）all rights reserved.
  */
 
-import lombok.Setter;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.authc.credential.PasswordMatcher;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.realm.jdbc.JdbcRealm;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
+import org.springframework.web.filter.DelegatingFilterProxy;
 
 import javax.sql.DataSource;
 
@@ -25,39 +28,50 @@ import javax.sql.DataSource;
  *  @date 2019/7/10
  */
 @SpringBootConfiguration
-@ConfigurationProperties("shiro")
+@Import({
+        MybatisConfig.class,
+        ShiroBasicConfig.class
+})
 public class ShiroConfig {
-
-    @Setter
-    private String hashAlgorithmName;
-    @Setter
-    private String defaultAuthenticationQuery;
-    @Setter
-    private String userRolesQuery;
-    @Setter
-    private String permissionsQuery;
-
     @Bean
-    public DefaultSecurityManager securityManager(){
-//        Environment environment = new DefaultEnvironment();
-//        SecurityManager securityManager = environment.getSecurityManager();
-        return new DefaultSecurityManager();
+    public DefaultSecurityManager securityManager(DataSource dataSource,ShiroBasicConfig shiroBasicConfig){
+        DefaultSecurityManager securityManager = new DefaultWebSecurityManager();
+        securityManager.setRealm(realm(dataSource,shiroBasicConfig));
+        return securityManager;
     }
 
     @Bean
-    public Realm realm(@Qualifier("dataSource") DataSource dataSource){
+    public Realm realm(DataSource dataSource,ShiroBasicConfig shiroBasicConfig){
         JdbcRealm realm = new JdbcRealm();
         realm.setDataSource(dataSource);
-        realm.setAuthenticationQuery(defaultAuthenticationQuery);
-        realm.setUserRolesQuery(userRolesQuery);
-        realm.setPermissionsQuery(permissionsQuery);
+        realm.setAuthenticationQuery(shiroBasicConfig.getDefaultAuthenticationQuery());
+        realm.setUserRolesQuery(shiroBasicConfig.getUserRolesQuery());
+        realm.setPermissionsQuery(shiroBasicConfig.getPermissionsQuery());
 
-        realm.setCredentialsMatcher(hashedCredentialsMatcher());
+        realm.setCredentialsMatcher(passwordMatcher());
+        realm.setSaltStyle(JdbcRealm.SaltStyle.COLUMN);
         return realm;
     }
 
     @Bean
-    public HashedCredentialsMatcher hashedCredentialsMatcher(){
-        return new HashedCredentialsMatcher(hashAlgorithmName);
+    public PasswordMatcher passwordMatcher(){
+        return new PasswordMatcher();
+    }
+
+    @Bean
+    public FilterRegistrationBean delegatingFilterProxy(){
+        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+        DelegatingFilterProxy proxy = new DelegatingFilterProxy();
+        proxy.setTargetFilterLifecycle(true);
+        proxy.setTargetBeanName("shiroFilter");
+        filterRegistrationBean.setFilter(proxy);
+        return filterRegistrationBean;
+    }
+
+    @Bean("shiroFilter")
+    public ShiroFilterFactoryBean shiroFilterFactoryBean(DataSource dataSource,ShiroBasicConfig shiroBasicConfig) {
+        ShiroFilterFactoryBean filterFactoryBean = new ShiroFilterFactoryBean();
+        filterFactoryBean.setSecurityManager(securityManager(dataSource,shiroBasicConfig));
+        return filterFactoryBean;
     }
 }

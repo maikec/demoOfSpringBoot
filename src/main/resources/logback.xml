@@ -91,7 +91,7 @@
     <!--TRACE > DEBUG > INFO > WARN > ERROR-->
     <logger name="com.example.springboot.controller" level="DEBUG"/>
 
-    <root level="INFO">
+    <root level="DEBUG">
         <appender-ref ref="STDOUT" />
         <!--<appender-ref ref="FILE" />-->
         <appender-ref ref="DAILY_FILE_DEBUG" />

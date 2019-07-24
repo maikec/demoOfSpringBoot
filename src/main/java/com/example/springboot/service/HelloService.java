@@ -8,6 +8,7 @@ package com.example.springboot.service;/**
  */
 
 import com.example.springboot.domain.Actor;
+import com.example.springboot.vo.UserVO;
 
 /**
  * hello
@@ -27,4 +28,6 @@ public interface HelloService {
      * @return
      */
     Integer save(Actor actor);
+
+    int saveUser(UserVO userVO);
 }

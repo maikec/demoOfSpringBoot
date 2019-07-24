@@ -9,7 +9,10 @@ package com.example.springboot.vo;/**
 
 import lombok.Data;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -18,11 +21,17 @@ import java.io.Serializable;
  *  @date 2019/7/10
  */
 @Data
-public class UserVO implements Serializable {
-    @NotNull(message = "名称不能为空")
+public class UserVO implements Serializable,Cloneable {
     private String name;
     @NotNull(message = "密码不能为空")
+    @Size(min = 8,max = 16,message = "密码长度为8到16位")
+    @Pattern(message = "密码必须是字母加数字",regexp = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$")
     private String password;
     @NotNull(message = "账号不能为空")
     private String account;
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }

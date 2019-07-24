@@ -1,7 +1,9 @@
 package com.example.springboot.service.impl;
 
+import cn.hutool.core.util.RandomUtil;
 import com.example.springboot.domain.Actor;
 import com.example.springboot.service.HelloService;
+import com.example.springboot.vo.UserVO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -33,5 +35,16 @@ public class HelloServiceImplTest {
 
             count.getAndAdd(1);
         }while (count.get()<500000);
+    }
+
+    @Test
+    public void saveUser(){
+        UserVO userVO = new UserVO();
+        for (;;){
+            userVO.setAccount(RandomUtil.randomString(10));
+            userVO.setName(RandomUtil.randomString(10));
+            userVO.setPassword(RandomUtil.randomNumbers(32));
+            service.saveUser(userVO);
+        }
     }
 }

@@ -9,6 +9,7 @@ package com.example.springboot.repository.mapper;
  */
 
 import com.example.springboot.domain.Actor;
+import com.example.springboot.domain.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -57,5 +58,6 @@ public interface ActorMapper {
     @Insert("insert into actor(first_name,last_name,last_update) values(#{firstName},#{lastName},#{lastUpdate})")
 //    @SelectKey(statement = "select last_insert_id()",keyProperty="actorId",resultType = Integer.class,before = false)
     Integer save( Actor actor) throws DataAccessException;
-
+    @Insert("insert into user(name, account,password,salt) values(#{name},#{account},#{password},#{salt})")
+    int saveUser(User user) throws DataAccessException;
 }

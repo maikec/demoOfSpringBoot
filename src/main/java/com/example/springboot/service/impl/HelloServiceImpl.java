@@ -7,13 +7,21 @@ package com.example.springboot.service.impl;/**
  * @copyright Copyright (c) 2019-2019+3. （company）all rights reserved.
  */
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.NumberUtil;
+import cn.hutool.core.util.RandomUtil;
 import com.example.springboot.domain.Actor;
 import com.example.springboot.domain.SYSConfig;
+import com.example.springboot.domain.User;
 import com.example.springboot.repository.mapper.ActorMapper;
 import com.example.springboot.repository.mapperext.SYSConfigMapper;
 import com.example.springboot.service.HelloService;
+import com.example.springboot.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.crypto.hash.Sha512Hash;
+import org.apache.shiro.util.ByteSource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -75,5 +83,15 @@ public class HelloServiceImpl implements HelloService {
     @Override
     public Integer save(Actor actor) {
         return mapper.save(actor);
+    }
+
+    @Override
+    public int saveUser(UserVO userVO) {
+        User user = new User();
+        BeanUtil.copyProperties(userVO,user);
+        user.setPassword(new Md5Hash(ByteSource.Util.bytes(user.getPassword())).toHex());
+        user.setId(RandomUtil.randomInt(1,100000));
+        user.setSalt(RandomUtil.randomString(6));
+        return mapper.saveUser(user);
     }
 }

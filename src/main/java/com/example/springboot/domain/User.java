@@ -23,4 +23,5 @@ public class User implements Serializable {
     private String account;
     private String password;
     private Byte status;
+    private String salt;
 }
